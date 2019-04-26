@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [ "$1" == "-g" ]; then
+	shift
+	gstat --printf '%w\n%x\n%y\n%z\n' "$@" | parallel -k -j4 --env PATH 'gdate -d {} "+%F %T"'
+else
+	/usr/bin/stat -f "%B%n%a%n%m%n%c%n" "$@" | parallel -k -j4 --env PATH 'gdate -d @{} "+%F %T"'
+fi

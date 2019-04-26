@@ -3,7 +3,7 @@ var moment = require('moment');
 
 var args = process.argv.slice(2);
 
-if (args.length != 1) {
+if (args.length !== 1) {
   console.error("Usage: add-date <datetime interval>");
   process.exit(1);
 }
@@ -13,7 +13,7 @@ var intervalNum = parseInt(arg.substr(0, arg.length - 1));
 var intervalScale = arg[arg.length - 1];
 
 process.stdout.on('error', function( err ) {
-    if (err.code == "EPIPE") {
+    if (err.code === "EPIPE") {
         process.exit(0);
     }
 });
