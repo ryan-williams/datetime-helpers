@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-
 args = process.argv.slice(2);
 
 var m = require('moment');
